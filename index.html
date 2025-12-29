@@ -1,65 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>André Silva Rodrigues - Iconógrafo</title>
+<meta charset="UTF-8">
+<title>André Silva Rodrigues</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-    color: #222;
-    line-height: 1.6;
-  }
-  header {
-    padding: 60px 20px;
-    text-align: center;
-  }
-  h1 { font-size: 2rem; margin-bottom: 10px; }
-  h2 { font-size: 1.1rem; font-weight: normal; opacity: 0.8; }
-  main {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  a {
-    color: #000;
-    text-decoration: underline;
-  }
-  footer {
-    text-align: center;
-    padding: 40px 0;
-    font-size: 0.9rem;
-    opacity: 0.6;
-  }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+    }
+    header {
+        background: #003366;
+        color: #fff;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 36px;
+        font-weight: bold;
+    }
+    header p {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    h2 {
+        font-size: 28px;
+        margin-top: 60px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    p, li {
+        font-size: 18px;
+    }
+    .sobre, .projetos, .outros {
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        margin-bottom: 40px;
+        border-left: 6px solid #003366;
+        padding-left: 20px;
+    }
+    ul {
+        padding-left: 20px;
+    }
 </style>
 </head>
 <body>
+
 <header>
-  <h1>André Silva Rodrigues</h1>
-  <h2>Iconógrafo</h2>
+    <h1>André Silva Rodrigues</h1>
+    <p>Iconografia e Workflow</p>
 </header>
-<main>
-  <h3>Sobre</h3>
-  <p>Profissional dedicado à preservação, organização e descrição de acervos visuais, com foco na integridade e contexto histórico das imagens.</p>
 
-  <h3>Projetos</h3>
-  <ul>
-    <li><strong>Conversor de Imagens com Preservação de Metadados</strong><br>
-      <a href="#">Link do Projeto (Hugging Face ou Gradio permanente)</a>
-    </li>
-  </ul>
+<div class="container">
 
-  <h3>Contato</h3>
-  <p>Email: seuemail@exemplo.com</p>
-</main>
-<footer>
-  © <span id="year"></span> André Silva Rodrigues
+    <section class="sobre">
+        <h2>Sobre</h2>
+        <p>Ferramentas de automação aplicadas ao processo iconográfico, permitindo <strong>processamentos em lote</strong>, <strong>preservação de metadados</strong> e <strong>melhor preparo técnico das imagens</strong>, resultando em fluxos mais <strong>rápidos, integrados e confiáveis</strong> — para que o tempo seja investido no que realmente importa: <strong>a curadoria e a escolha das melhores imagens</strong>.</p>
+    </section>
+
+    <section class="projetos">
+        <h2>Projetos</h2>
+        <ul>
+            <li><strong>Conversor de Imagens que Mantém Metadados:</strong> <a href="https://huggingface.co/spaces/andresilvaro/conversor-metadados" target="_blank">Abrir</a></li>
+            <li><strong>Aumentar Resolução de Imagens:</strong> <a href="https://huggingface.co/spaces/andresilvaro/interpolador" target="_blank">Abrir</a></li>
+            <li><strong>Thumbs com Metadados (Pulsar Imagens):</strong> <a href="https://huggingface.co/spaces/andresilvaro/thumbs-pulsar" target="_blank">Abrir</a></li> 
+            <li><strong>AI eBook Creator:</strong> <a href="https://aistudio.google.com/app/apps/drive/1PTSaMghDTWhNNxmnCkGmULTfNPfjruNH?showPreview=true&showAssistant=true" target="_blank">Abrir</a></li>  
+            <li><strong>Análise Iconográfica Assistida (com Inteligência Artificial):</strong> <a href="https://ai.studio/apps/drive/1aJhVNJZJRliI1zE0quwDdUm1IHC6NyRt" target="_blank">Abrir</a></li>
+            <li><strong>Busca Reverva (com Inteligência Artificial voltada para iconografia):</strong> <a href="#" target="_blank">Em breve</a></li>
+            <li><strong>Thumbs com Metadados (Alamy):</strong> <a href="#" target="_blank">Em breve</a></li>   
+            <li><strong>Thumbs com Metadados (Shutterstock, Pulsar Imagens, Getty Images, Istock):</strong> <a href="#" target="_blank"></a></li> 
+            <li><strong>Baixar Imagens Alta Shutterstock API:</strong> <a href="#" target="_blank"></a></li>
+            <li><strong>Baixar Imagens Alta Shutterstock Selenium:</strong> <a href="#" target="_blank"></a></li>
+            <li><strong>Baixar Imagens Alta Getty API:</strong> <a href="#" target="_blank"></a></li>
+            <li><strong>Análise Textual Assistida (com Inteligência Artificial):</strong> <a href="#" target="_blank"></a></li>
+            <li><strong>Renomear Imagens em Alta (em lote):</strong> <a href="#" target="_blank"></a></li>  
+            <li><strong>Atualizar status (em lote):</strong> <a href="#" target="_blank"></a></li>  
+            <li><strong>Compor Créditos (Shutterstock, Pulsar Imagens, Getty Images, Istock):</strong> <a href="#" target="_blank"></a></li>  
+        </ul>
+    </section>
+    
+    <section class="outros">
+        <h2>Sites e programas úteis</h2>
+        <ul>
+            <li><strong>ReNamer:</strong> <a href="https://renamer.softonic.com.br/s" target="_blank">Abrir</a></li>
+            <li><strong>PDF24 Tools:</strong> <a href="https://tools.pdf24.org/pt/extrair-imagens" target="_blank">Abrir</a></li>
+            <li><strong>Text Enhancer:</strong> <a href="https://unblurimage.ai/text-enhancer/" target="_blank">Abrir</a></li>
+            <li><strong>ShortKeeper:</strong> <a href="https://cedeq.com/shortkeeper/en" target="_blank">Abrir</a></li>
+            <li><strong>IrfanView:</strong> <a href="https://www.irfanview.com/" target="_blank">Abrir</a></li>
+            <li><strong>Yandex:</strong> <a href="https://yandex.com/images/" target="_blank">Abrir</a></li>
+        </ul>
+    </section>
+
+</div>
+
+<footer style="text-align:center; margin:60px 0 40px;">
+  <div class="contato-links" style="margin-top:20px;">
+    <a class="btn-contato" href="https://wa.me/5543996758003" target="_blank">WhatsApp</a>
+    <a class="btn-contato" href="https://www.linkedin.com/in/andr%C3%A9-silva-rodrigues-1736128b/" target="_blank">LinkedIn</a>
+    <a class="btn-contato" href="https://github.com/xicretin" target="_blank">GitHub</a>
+  </div>
 </footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+
 </body>
 </html>
