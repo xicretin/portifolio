@@ -1,108 +1,275 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>André Silva Rodrigues</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Projetos e ferramentas de André Silva Rodrigues para otimizar fluxos de trabalho em iconografia, imagens e metadados.">
+  <title>André Silva Rodrigues | Iconografia & Workflow</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #64748b;
+      --paper: #f5f7fb;
+      --surface: #ffffff;
+      --line: #e2e8f0;
+      --brand: #5b5ce2;
+      --brand-dark: #4445c7;
+      --accent: #a5f3fc;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(15, 23, 42, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #f5f7fa;
-        color: #333;
-        line-height: 1.6;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
     }
-    header {
-        background: #003366;
-        color: #fff;
-        text-align: center;
-        padding: 40px 20px;
+    a { color: inherit; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 76px 24px 82px;
+      color: #fff;
+      background: radial-gradient(ellipse at 85% 15%, rgba(99,102,241,.55), transparent 35%),
+                  linear-gradient(135deg, #101827 0%, #20285b 58%, #3730a3 100%);
     }
-    header h1 {
-        margin: 0;
-        font-size: 36px;
-        font-weight: bold;
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px; height: 360px;
+      right: -120px; bottom: -220px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 36px rgba(255,255,255,.035), 0 0 0 72px rgba(255,255,255,.025);
     }
-    header p {
-        font-size: 18px;
-        margin-top: 10px;
+    .hero-inner, main, footer { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      margin: 0 0 18px; color: #c7d2fe; font-size: .78rem;
+      font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
     }
-    .container {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 0 20px;
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--accent); }
+    h1 { max-width: 760px; margin: 0; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1.05; letter-spacing: -.045em; }
+    .hero p { max-width: 680px; margin: 22px 0 0; color: #e0e7ff; font-size: clamp(1rem, 2vw, 1.2rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 46px; padding: 11px 18px; border-radius: 12px;
+      text-decoration: none; font-weight: 750; transition: transform .18s, background .18s;
     }
-    h2 {
-        font-size: 28px;
-        margin-top: 60px;
-        margin-bottom: 20px;
-        font-weight: bold;
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: #fff; color: #25265f; }
+    .button-ghost { border: 1px solid rgba(255,255,255,.35); color: #fff; }
+    main { padding: 46px 0 22px; }
+    section { margin-bottom: 48px; scroll-margin-top: 24px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
+    .section-heading h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.2; letter-spacing: -.03em; }
+    .section-heading p { margin: 7px 0 0; color: var(--muted); }
+    .about {
+      padding: 28px 30px; background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); box-shadow: var(--shadow);
     }
-    p, li {
-        font-size: 18px;
+    .about p { margin: 0; max-width: 900px; color: #475569; font-size: 1.05rem; }
+    .about strong { color: var(--ink); }
+    .featured {
+      position: relative; overflow: hidden; padding: clamp(25px, 5vw, 42px);
+      color: #fff; border-radius: 26px;
+      background: radial-gradient(circle at 95% 10%, rgba(165,243,252,.18), transparent 28%),
+                  linear-gradient(135deg, #202454, #4338ca 75%, #5b5ce2);
+      box-shadow: 0 22px 55px rgba(67,56,202,.2);
     }
-    .sobre, .projetos, .outros {
-        background: #fff;
-        padding: 25px;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        margin-bottom: 40px;
-        border-left: 6px solid #003366;
-        padding-left: 20px;
+    .featured .tag {
+      display: inline-block; padding: 5px 10px; border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px; color: #cffafe; font-size: .75rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
     }
-    ul {
-        padding-left: 20px;
+    .featured h3 { margin: 16px 0 10px; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; letter-spacing: -.04em; }
+    .featured p { max-width: 740px; color: #e0e7ff; margin: 0; }
+    .feature-points { display: flex; flex-wrap: wrap; gap: 9px; margin: 20px 0 26px; padding: 0; list-style: none; }
+    .feature-points li { padding: 6px 10px; border-radius: 8px; background: rgba(255,255,255,.1); color: #f8fafc; font-size: .88rem; }
+    .featured .button-primary { background: #fff; }
+    .featured .button-ghost { border-color: rgba(255,255,255,.35); }
+    .resource-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .resource-links a { color: #eef2ff; font-weight: 650; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card {
+      display: flex; flex-direction: column; align-items: flex-start; min-height: 190px;
+      padding: 23px; background: var(--surface); border: 1px solid var(--line);
+      border-radius: 18px; transition: transform .18s, box-shadow .18s, border-color .18s;
     }
-</style>
+    .card:hover { transform: translateY(-3px); border-color: #c7d2fe; box-shadow: var(--shadow); }
+    .card h3 { margin: 0 0 8px; font-size: 1.08rem; line-height: 1.35; }
+    .card p { flex: 1; margin: 0 0 18px; color: var(--muted); font-size: .94rem; }
+    .card a { color: var(--brand-dark); font-weight: 800; text-decoration: none; }
+    .card a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .tool {
+      display: block; padding: 17px; background: #fff; border: 1px solid var(--line);
+      border-radius: 14px; text-decoration: none; transition: border-color .18s, transform .18s;
+    }
+    .tool:hover { border-color: #a5b4fc; transform: translateY(-2px); }
+    .tool strong { display: block; margin-bottom: 4px; font-size: .96rem; }
+    .tool span { color: var(--muted); font-size: .82rem; }
+    .tutorials { padding: 25px 28px; background: #eef2ff; border: 1px solid #dbe3ff; border-radius: 20px; }
+    .tutorials h3 { margin: 0 0 14px; }
+    .tutorial-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; margin: 0; padding-left: 20px; }
+    .tutorial-list li { padding-left: 4px; color: #334155; }
+    .tutorial-list a { color: var(--brand-dark); font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    footer { padding: 25px 0 40px; border-top: 1px solid var(--line); text-align: center; color: var(--muted); }
+    footer p { margin: 0 0 12px; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .footer-links a { padding: 9px 13px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); font-weight: 700; text-decoration: none; }
+    @media (max-width: 760px) {
+      .hero { padding: 58px 0 64px; }
+      .grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tutorial-list { grid-template-columns: 1fr; }
+      .section-heading { display: block; }
+    }
+    @media (max-width: 420px) {
+      .hero-inner, main, footer { width: min(100% - 28px, 1080px); }
+      .tools-grid { grid-template-columns: 1fr; }
+      .about { padding: 23px; }
+      .button { width: 100%; }
+    }
+  </style>
 </head>
 <body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Projetos • Iconografia • Automação</p>
+      <h1>André Silva Rodrigues</h1>
+      <p>Ferramentas e soluções para tornar os fluxos de trabalho com imagens mais ágeis, organizados e eficientes.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#projeto-destaque">Conheça o Iconograf.IA ↓</a>
+        <a class="button button-ghost" href="#projetos">Explorar projetos</a>
+      </div>
+    </div>
+  </header>
 
-<header>
-    <h1>André Silva Rodrigues</h1>
-    <p>Iconografia e Workflow</p>
-</header>
-
-<div class="container">
-
-    <section class="sobre">
-        <h2>Sobre</h2>
-        <p>Ferramentas de automação aplicadas ao processo iconográfico, permitindo <strong>processamentos em lote</strong>, <strong>preservação de metadados</strong> e <strong>melhor preparo técnico das imagens</strong>, resultando em fluxos mais <strong>rápidos, integrados e confiáveis</strong> — para que o tempo seja investido no que realmente importa: <strong>a curadoria e a escolha das melhores imagens</strong>.</p>
+  <main>
+    <section class="about" id="sobre">
+      <div class="section-heading">
+        <div>
+          <h2>Sobre o trabalho</h2>
+          <p>Tecnologia aplicada à rotina iconográfica.</p>
+        </div>
+      </div>
+      <p>Desenvolvo e reúno ferramentas para otimizar tarefas do processo iconográfico, com foco em <strong>processamento em lote</strong>, <strong>preservação de metadados</strong> e <strong>preparação técnica de imagens</strong>. O objetivo é reduzir etapas repetitivas e dedicar mais tempo à curadoria e à seleção das imagens.</p>
     </section>
 
-    <section class="projetos">
-        <h2>Projetos</h2>
-        <ul>
-            <li><strong>Conversor de Imagens que Mantém Metadados:</strong> <a href="https://huggingface.co/spaces/andresilvaro/conversor-metadados" target="_blank">Abrir</a></li>
-            <li><strong>Aumentar Resolução de Imagens:</strong> <a href="https://huggingface.co/spaces/andresilvaro/interpolador" target="_blank">Abrir</a></li>
-            <li><strong>Thumbs com Metadados (Pulsar Imagens):</strong> <a href="https://huggingface.co/spaces/andresilvaro/thumbs-pulsar" target="_blank">Abrir</a></li> 
-            <li><strong>AI eBook Creator:</strong> <a href="https://aistudio.google.com/app/apps/drive/1PTSaMghDTWhNNxmnCkGmULTfNPfjruNH?showPreview=true&showAssistant=true" target="_blank">Abrir</a></li>  
-            <li><strong>Análise Iconográfica Assistida (com Inteligência Artificial):</strong> <a href="https://ai.studio/apps/drive/1aJhVNJZJRliI1zE0quwDdUm1IHC6NyRt" target="_blank">Abrir</a></li>
-            <li><strong>Thumbs com Metadados (Shutterstock, Pulsar Imagens, Getty Images, Istock):</strong> <a href="#" target="_blank"></a></li> 
+    <section id="projeto-destaque">
+      <div class="section-heading">
+        <div>
+          <h2>Projeto em destaque</h2>
+          <p>Conheça a ferramenta e acesse os materiais de apoio.</p>
+        </div>
+      </div>
+      <article class="featured">
+        <span class="tag">Novo projeto</span>
+        <h3>Iconograf.IA</h3>
+        <p>Um conjunto de recursos e orientações para apoiar o fluxo de trabalho iconográfico. Consulte a apresentação, acesse os arquivos do projeto e acompanhe os tutoriais passo a passo.</p>
+        <ul class="feature-points">
+          <li>Fluxo de trabalho organizado</li>
+          <li>Biblioteca e menu lateral</li>
+          <li>Marcadores e contadores</li>
+          <li>Materiais de configuração</li>
         </ul>
-    </section>
-    
-    <section class="outros">
-        <h2>Sites e programas úteis</h2>
-        <ul>
-            <li><strong>ReNamer:</strong> <a href="https://renamer.softonic.com.br/s" target="_blank">Abrir</a></li>
-            <li><strong>PDF24 Tools:</strong> <a href="https://tools.pdf24.org/pt/extrair-imagens" target="_blank">Abrir</a></li>
-            <li><strong>Text Unblur/Enhancer:</strong> <a href="https://unblurimage.ai/text-enhancer/" target="_blank">Abrir</a></li>
-            <li><strong>ShortKeeper:</strong> <a href="https://cedeq.com/shortkeeper/en" target="_blank">Abrir</a></li>
-            <li><strong>IrfanView:</strong> <a href="https://www.irfanview.com/" target="_blank">Abrir</a></li>
-            <li><strong>Yandex:</strong> <a href="https://yandex.com/images/" target="_blank">Abrir</a></li>
-            <li><strong>TinEye:</strong> <a href="https://tineye.com/" target="_blank">Abrir</a></li>
-            <li><strong>ImageAssistant Batch Image Downloader:</strong> <a href="https://chromewebstore.google.com/detail/imageassistant-batch-imag/dbjbempljhcmhlfpfacalomonjpalpko?hl=pt-BR" target="_blank">Abrir</a></li>
-        </ul>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://youtu.be/3ljsreEFMa0" target="_blank" rel="noopener noreferrer">▶ Assistir à apresentação</a>
+          <a class="button button-ghost" href="https://drive.google.com/drive/folders/1wnIhDozw1n1kaolx1d7UAkMigr0x7PDO?usp=sharing" target="_blank" rel="noopener noreferrer">Acessar arquivos ↗</a>
+          <a class="button button-ghost" href="https://huggingface.co/spaces/andresilvaro/template_creator" target="_blank" rel="noopener noreferrer">Gerador de templates ↗</a>
+        </div>
+        <div class="resource-links">
+          <a href="#tutoriais">Ver vídeos passo a passo ↓</a>
+        </div>
+      </article>
     </section>
 
-</div>
+    <section id="projetos">
+      <div class="section-heading">
+        <div>
+          <h2>Outros projetos</h2>
+          <p>Aplicações para apoiar diferentes etapas do trabalho com imagens e conteúdo.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Conversor de imagens com preservação de metadados</h3>
+          <p>Converta imagens mantendo informações relevantes incorporadas aos arquivos.</p>
+          <a href="https://huggingface.co/spaces/andresilvaro/conversor-metadados" target="_blank" rel="noopener noreferrer">Abrir ferramenta ↗</a>
+        </article>
+        <article class="card">
+          <h3>Aumento de resolução de imagens</h3>
+          <p>Ferramenta para ampliar imagens e melhorar sua resolução.</p>
+          <a href="https://huggingface.co/spaces/andresilvaro/interpolador" target="_blank" rel="noopener noreferrer">Abrir ferramenta ↗</a>
+        </article>
+        <article class="card">
+          <h3>Miniaturas com metadados — Pulsar Imagens</h3>
+          <p>Gere miniaturas com informações úteis para consulta e organização.</p>
+          <a href="https://huggingface.co/spaces/andresilvaro/thumbs-pulsar" target="_blank" rel="noopener noreferrer">Abrir ferramenta ↗</a>
+        </article>
+        <article class="card">
+          <h3>AI eBook Creator</h3>
+          <p>Aplicação voltada à criação de e-books com apoio de inteligência artificial.</p>
+          <a href="https://aistudio.google.com/app/apps/drive/1PTSaMghDTWhNNxmnCkGmULTfNPfjruNH?showPreview=true&showAssistant=true" target="_blank" rel="noopener noreferrer">Abrir aplicação ↗</a>
+        </article>
+        <article class="card">
+          <h3>Análise iconográfica assistida por IA</h3>
+          <p>Recurso de apoio à análise iconográfica com inteligência artificial.</p>
+          <a href="https://ai.studio/apps/drive/1aJhVNJZJRliI1zE0quwDdUm1IHC6NyRt" target="_blank" rel="noopener noreferrer">Abrir aplicação ↗</a>
+        </article>
+        <article class="card">
+          <h3>Miniaturas com metadados para bancos de imagem</h3>
+          <p>Projeto relacionado a Shutterstock, Pulsar Imagens, Getty Images e iStock.</p>
+          <span style="color:#64748b;font-size:.9rem">Link de acesso ainda não informado</span>
+        </article>
+      </div>
+    </section>
 
-<footer style="text-align:center; margin:60px 0 40px;">
-  <div class="contato-links" style="margin-top:20px;">
-    <a class="btn-contato" href="andresilvaro@gmail.com" target="_blank">andresilvaro@gmail.com</a>
-    <a class="btn-contato" href="https://www.linkedin.com/in/andr%C3%A9-silva-rodrigues-1736128b/" target="_blank">LinkedIn</a>
-  </div>
-</footer>
+    <section id="tutoriais">
+      <div class="tutorials">
+        <h3>Tutoriais do Iconograf.IA</h3>
+        <ol class="tutorial-list">
+          <li><a href="https://youtu.be/3ljsreEFMaz" target="_blank" rel="noopener noreferrer">Configuração do Tampermonkey e Google Drive ↗</a></li>
+          <li><a href="https://youtu.be/3ljsreEFMa0z1" target="_blank" rel="noopener noreferrer">Conheça o menu lateral ↗</a></li>
+          <li><a href="https://youtu.be/3ljsreEFMa0z2" target="_blank" rel="noopener noreferrer">Conheça o menu Biblioteca ↗</a></li>
+          <li><a href="https://youtu.be/3ljsreEFMa0z3" target="_blank" rel="noopener noreferrer">Configuração de marcadores e contadores ↗</a></li>
+        </ol>
+      </div>
+    </section>
 
+    <section id="ferramentas">
+      <div class="section-heading">
+        <div>
+          <h2>Ferramentas que recomendo</h2>
+          <p>Sites e programas úteis para a rotina de pesquisa, organização e tratamento de imagens.</p>
+        </div>
+      </div>
+      <div class="tools-grid">
+        <a class="tool" href="https://renamer.softonic.com.br/s" target="_blank" rel="noopener noreferrer"><strong>ReNamer</strong><span>Renomeação de arquivos</span></a>
+        <a class="tool" href="https://tools.pdf24.org/pt/extrair-imagens" target="_blank" rel="noopener noreferrer"><strong>PDF24 Tools</strong><span>Extração de imagens de PDFs</span></a>
+        <a class="tool" href="https://unblurimage.ai/text-enhancer/" target="_blank" rel="noopener noreferrer"><strong>Text Unblur / Enhancer</strong><span>Melhoria de legibilidade</span></a>
+        <a class="tool" href="https://cedeq.com/shortkeeper/en" target="_blank" rel="noopener noreferrer"><strong>ShortKeeper</strong><span>Utilitário de produtividade</span></a>
+        <a class="tool" href="https://www.irfanview.com/" target="_blank" rel="noopener noreferrer"><strong>IrfanView</strong><span>Visualização e edição de imagens</span></a>
+        <a class="tool" href="https://yandex.com/images/" target="_blank" rel="noopener noreferrer"><strong>Yandex Images</strong><span>Pesquisa visual</span></a>
+        <a class="tool" href="https://tineye.com/" target="_blank" rel="noopener noreferrer"><strong>TinEye</strong><span>Busca reversa de imagens</span></a>
+        <a class="tool" href="https://chromewebstore.google.com/detail/imageassistant-batch-imag/dbjbempljhcmhlfpfacalomonjpalpko?hl=pt-BR" target="_blank" rel="noopener noreferrer"><strong>ImageAssistant</strong><span>Download em lote de imagens</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Contato profissional</p>
+    <div class="footer-links">
+      <a href="mailto:andresilvaro@gmail.com">andresilvaro@gmail.com</a>
+      <a href="https://www.linkedin.com/in/andr%C3%A9-silva-rodrigues-1736128b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    </div>
+  </footer>
 </body>
 </html>
